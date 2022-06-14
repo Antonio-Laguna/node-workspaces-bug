@@ -1,0 +1,16 @@
+{
+  "name": "package-a",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "dependencies": {
+    "my-custom-loader": "1.0.0",
+    "is-sorted": "1.0.5"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
