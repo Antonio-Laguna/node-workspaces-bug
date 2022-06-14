@@ -1,13 +1,13 @@
 ## Node Workspaces Bug
 
-This repo tries to illustrate what I consider is a bug on NPM Workspaces. 
+This repo tries to illustrate what I consider a bug on NPM Workspaces. 
 
 This happened on a repository that had 3 packages but only one was really 
 important. The package had some webpack bundler which was repeated across
 the rest of the projects so all of those libraries were hoisted to the
 root.
 
-Now, the package was using `require` through a loader for a public dependency
+The package was using `require` through a loader for a public dependency
 but local to that repository. npm placed that dependency **within** said 
 package.
 
@@ -23,6 +23,20 @@ wouldn't be bad as it's just another step on the `resolve` chain. However,
 I don't know enough so this could be a wrong assumption. 
 
 ### How is this architectured
+
+```mermaid
+graph TD
+    A(Root) --> C(Package A)
+    C --> |dependency| D(is-sorted v1.0.5)
+    C --> |import|H(customLoader)
+    H --> J("customLoader('is-sorted')")
+    G --> |export|H(customLoader)
+    A(Root) --> B(My Custom Loader)
+    B --> G("function customLoader(packageName) { require(packageName) }")
+    A(Root) --> E(Package B)
+    E --> |dependency| F(is-sorted v1.0.0)
+    E --> |import|H(customLoader)
+```
 
 This is a _simple_ workspace which has 3 packages. 
 
