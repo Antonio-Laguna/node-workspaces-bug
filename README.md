@@ -2,6 +2,8 @@
 
 This repo tries to illustrate what I consider a bug on NPM Workspaces. 
 
+See [#43429](https://github.com/nodejs/node/issues/43429) at [nodejs/node](https://github.com/nodejs/node).
+
 This happened on a repository that had 3 packages but only one was really 
 important. The package had some webpack bundler which was repeated across
 the rest of the projects so all of those libraries were hoisted to the
