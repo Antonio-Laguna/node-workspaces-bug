@@ -16,3 +16,4 @@ console.log('Function name is', isSorted.name);
 console.log('Result is', isSorted(args));
 
 console.log('\nPackage B - END\n');
+console.log('\n----------------------------------------\n');

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npm run test --workspaces"
+    "test": "npm run test --silent --workspaces"
   },
   "workspaces": [
     "packages/*"
